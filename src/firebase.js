@@ -9,7 +9,7 @@ const firebaseConfig = {
   storageBucket: "vue-fire-ffb9d.appspot.com",
   messagingSenderId: "843917389865",
   appId: "1:843917389865:web:c0b7686aa79619ca3cec38",
-  measurementId: "G-7EQVFXK2HE"
+  measurementId: "G-7EQVFXK2HE",
 };
 
 const app = firebase.initializeApp(firebaseConfig);
