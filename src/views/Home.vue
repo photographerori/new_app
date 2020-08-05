@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <input type="text" />
     <button v-on:click="postTweet">ツイート</button>
     <!-- 変更点１ -->
     <div>
