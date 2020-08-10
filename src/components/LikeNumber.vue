@@ -1,14 +1,12 @@
 <template>
   <div>
-    <p>いいね{{ number }}</p>
+    <p>いいね({{ number }})</p>
     <button @click="increment">👍</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "LikesCount",
-  props: {},
   data: function() {
     return {
       number: 0,

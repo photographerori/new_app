@@ -6,19 +6,15 @@
     <div>
       <p v-for="tweet in tweets" :key="tweet.id">{{ tweet.text }}</p>
     </div>
-    <LikesCount></LikesCount>
   </div>
 </template>
 
 <script>
 import db from "@/firebase";
-import LikesCount from "../components/LikesCount";
 
 export default {
   name: "home",
-  components: {
-    LikesCount,
-  },
+  components: {},
   /* 変更点２ */
   data() {
     return {
