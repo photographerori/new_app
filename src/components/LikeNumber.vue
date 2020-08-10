@@ -1,20 +1,21 @@
 <template>
   <div>
-    <p>いいね({{ number }})</p>
+    <p>いいね({{ halfNumber }})</p>
     <button @click="increment">👍</button>
   </div>
 </template>
 
 <script>
 export default {
-  data: function() {
-    return {
-      number: 0,
-    };
+  props: ["totalNumber"],
+  computed: {
+    halfNumber: function() {
+      return this.totalNumber / 2;
+    },
   },
   methods: {
     increment: function() {
-      this.number++;
+      this.$emit("my-click", this.totalNumber++);
     },
   },
 };
