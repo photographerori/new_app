@@ -5,6 +5,7 @@
       <LikeHeader></LikeHeader>
       <LikeNumber></LikeNumber>
       <Tweet></Tweet>
+      <SignUp></SignUp>
     </div>
   </div>
 </template>
@@ -13,11 +14,13 @@
 import LikeHeader from "../components/LikeHeader";
 import LikeNumber from "../components/LikeNumber";
 import Tweet from "../components/Tweet";
+import SignUp from "../components/SignUp";
 export default {
   components: {
     LikeHeader,
     LikeNumber,
     Tweet,
+    SignUp,
   },
 };
 </script>
