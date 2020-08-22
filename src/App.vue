@@ -4,6 +4,7 @@
       <router-link to="/comment" class="header-item">コメント</router-link>
       <router-link to="/login" class="header-item">ログイン</router-link>
       <router-link to="/register" class="header-item">登録</router-link>
+      <!-- <router-link to="/auth" class="header-item">auth</router-link> -->
     </header>
     <main>
       <router-link to="/home">Home</router-link>

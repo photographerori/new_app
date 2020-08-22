@@ -78,10 +78,12 @@
         </v-row>
       </v-col>
     </v-row>
+    <button @click="signOut">Sign out</button>
   </v-container>
 </template>
 
 <script>
+import firebase from "firebase";
 export default {
   name: "HelloWorld",
 
@@ -138,5 +140,15 @@ export default {
       },
     ],
   }),
+  methods: {
+    signOut: function() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.push("/signin");
+        });
+    },
+  },
 };
 </script>
