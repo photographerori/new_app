@@ -7,6 +7,7 @@ import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import HelloWorld from "../components/HelloWorld";
 import firebase from "firebase";
+import Teams from "../views/Teams";
 
 Vue.use(VueRouter);
 
@@ -41,6 +42,11 @@ const routes = [
     path: "/register",
     name: "Register",
     component: Register,
+  },
+  {
+    path: "/teams",
+    name: "teams",
+    component: Teams,
   },
 ];
 
