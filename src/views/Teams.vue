@@ -6,17 +6,13 @@
     <div>{{ teamCountries }}</div>
     <div>{{ teamFoundationYears }}</div>
     <div>
-      <img :src="teamLogo" alt="" v-for="teamLogo in teamLogos" />
+      <img :src="teamLogo" alt v-for="teamLogo in teamLogos" />
       <h3 v-for="teamName in teamNames" :key="teamName">{{ teamName }}</h3>
-      <p v-for="teamCountry in teamCountries" :key="teamCountry">
-        {{ teamCountry }}
-      </p>
+      <p v-for="teamCountry in teamCountries" :key="teamCountry">{{ teamCountry }}</p>
       <p
         v-for="teamFoundationYear in teamFoundationYears"
         :key="teamFoundationYear"
-      >
-        {{ teamFoundationYear }}
-      </p>
+      >{{ teamFoundationYear }}</p>
     </div>
   </div>
 </template>
@@ -62,7 +58,7 @@ export default {
           console.log(err);
           alert("Error!");
         }),
-    },
+    }
   },
 };
 </script>
