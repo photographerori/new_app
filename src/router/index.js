@@ -7,7 +7,7 @@ import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import HelloWorld from "../components/HelloWorld";
 import firebase from "firebase";
-import Teams from "../views/Teams";
+import PremierLeague from "../views/PremierLeague";
 
 Vue.use(VueRouter);
 
@@ -44,9 +44,9 @@ const routes = [
     component: Register,
   },
   {
-    path: "/teams",
-    name: "teams",
-    component: Teams,
+    path: "/premier-league",
+    name: "PremierLeague",
+    component: PremierLeague,
   },
 ];
 

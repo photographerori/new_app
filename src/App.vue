@@ -8,7 +8,7 @@
     <main>
       <router-link to="/home">Home</router-link>
       <router-link to="/about">About</router-link>
-      <router-link to="/teams">Teams</router-link>
+      <router-link to="/premier-league">Premier League</router-link>
     </main>
     <router-view></router-view>
   </div>
