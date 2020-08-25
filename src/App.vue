@@ -9,6 +9,7 @@
       <router-link to="/home">Home</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/premier-league">Premier League</router-link>
+      <router-link to="/chat">Chat</router-link>
     </main>
     <router-view></router-view>
   </div>

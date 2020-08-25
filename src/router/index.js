@@ -8,6 +8,7 @@ import Register from "../views/Register.vue";
 import HelloWorld from "../components/HelloWorld";
 import firebase from "firebase";
 import PremierLeague from "../views/PremierLeague";
+import Chat from "../views/Chat";
 
 Vue.use(VueRouter);
 
@@ -47,6 +48,11 @@ const routes = [
     path: "/premier-league",
     name: "PremierLeague",
     component: PremierLeague,
+  },
+  {
+    path: "/chat",
+    name: "Chat",
+    component: Chat,
   },
 ];
 
