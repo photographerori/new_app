@@ -5,6 +5,7 @@ import About from "../views/About.vue";
 import Comments from "../views/Comments.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
+import Mypage from "../views/Mypage.vue";
 import HelloWorld from "../components/HelloWorld";
 import firebase from "firebase";
 import PremierLeague from "../views/PremierLeague";
@@ -48,29 +49,24 @@ const routes = [
     name: "PremierLeague",
     component: PremierLeague,
   },
+  {
+    path: "/mypage",
+    name: "Mypage",
+    component: Mypage,
+    meta: { requiresAuth: true },
+  },
 ];
 
 const router = new VueRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  if (requiresAuth) {
-    // このルートはログインされているかどうか認証が必要です。
-    // もしされていないならば、ログインページにリダイレクトします。
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        next();
-      } else {
-        next({
-          path: "/login",
-          query: { redirect: to.fullPath },
-        });
-      }
-    });
+  if (requiresAuth && !(await firebase.getCurrentUser())) {
+    next({ path: "/singin", query: { redirect: to.fullPath } });
   } else {
-    next(); // next() を常に呼び出すようにしてください!
+    next();
   }
 });
 

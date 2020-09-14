@@ -1,9 +1,11 @@
 <template>
   <div id="app">
+    <Header></Header>
     <header>
       <router-link to="/comment" class="header-item">コメント</router-link>
       <router-link to="/login" class="header-item">ログイン</router-link>
       <router-link to="/register" class="header-item">登録</router-link>
+      <router-link to="/mypage" class="header-item">マイページ</router-link>
     </header>
     <main>
       <router-link to="/home">Home</router-link>
@@ -15,10 +17,13 @@
 </template>
 
 <script>
+import Header from "./components/Header";
 export default {
   name: "App",
 
-  components: {},
+  components: {
+    Header,
+  },
 
   data: () => ({
     //
