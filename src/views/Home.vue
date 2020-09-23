@@ -1,24 +1,14 @@
 <template>
   <div>
     <div>
-      <p>{{ this.count }}</p>
-      <p>{{ doubleCount }}</p>
-      <button @click="increment">+1</button>
-    </div>
-    <div>
-      <Item
-        v-for="post in posts"
-        :key="post.id"
-        :post="post"
-        class="list-none my-5"
-      />
+      <Item v-for="post in posts" :key="post.id" :post="post" />
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import { db } from "@/main";
+import { db } from "@/firebase";
 import Item from "@/components/Item";
 export default {
   components: {
@@ -31,11 +21,6 @@ export default {
     };
   },
   computed: mapGetters(["doubleCount"]),
-  methods: {
-    increment() {
-      this.$store.state.count++;
-    },
-  },
   firestore() {
     return {
       posts: db.collection("posts"),

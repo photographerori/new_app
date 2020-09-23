@@ -6,19 +6,12 @@ import Comments from "../views/Comments.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Mypage from "../views/Mypage.vue";
-import HelloWorld from "../components/HelloWorld";
 import firebase from "firebase";
 import PremierLeague from "../views/PremierLeague";
 
 Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: "/",
-    name: "HelloWorld",
-    component: HelloWorld,
-    meta: { requiresAuth: true },
-  },
   {
     path: "/home",
     name: "Home",
@@ -50,7 +43,7 @@ const routes = [
     component: PremierLeague,
   },
   {
-    path: "/mypage",
+    path: "/mypage/:uid",
     name: "Mypage",
     component: Mypage,
     meta: { requiresAuth: true },
