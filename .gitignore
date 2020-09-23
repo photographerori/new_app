@@ -20,3 +20,7 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+#files with API key
+src/views/PremierLeague.vue
+src/firebase.js

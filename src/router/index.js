@@ -7,7 +7,7 @@ import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Mypage from "../views/Mypage.vue";
 import firebase from "firebase";
-import PremierLeague from "../views/PremierLeague";
+import Chat from "../views/Chat";
 
 Vue.use(VueRouter);
 
@@ -38,15 +38,15 @@ const routes = [
     component: Register,
   },
   {
-    path: "/premier-league",
-    name: "PremierLeague",
-    component: PremierLeague,
-  },
-  {
     path: "/mypage/:uid",
     name: "Mypage",
     component: Mypage,
     meta: { requiresAuth: true },
+  },
+  {
+    path: "/chat",
+    name: "Chat",
+    component: Chat,
   },
 ];
 
