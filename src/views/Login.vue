@@ -2,19 +2,12 @@
   <div class="login">
     <h2>ログイン</h2>
     <div>
-      <button>Googleアカウントでログイン</button>
-    </div>
-    <div>
-      <button>Facebookアカウントでログイン</button>
-    </div>
-    <div>
-      <button>メールアドレスでログイン</button>
       <div>
-        <label for="email">Email: </label>
+        <label for="email">Email:</label>
         <input id="email" type="email" v-model="email" />
       </div>
       <div>
-        <label for="password">パスワード: </label>
+        <label for="password">パスワード:</label>
         <input id="password" type="password" v-model="password" />
       </div>
       <button @click="login">ログイン</button>
@@ -32,6 +25,7 @@ export default {
     return {
       email: "",
       password: "",
+      currentUser: {},
     };
   },
   methods: {
@@ -39,8 +33,11 @@ export default {
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
-        .then(() => {
-          this.$router.push("/");
+        .then(result => {
+          this.$router.push({
+            name: "Mypage",
+            params: { uid: result.user.uid },
+          });
         })
         .catch(function(error) {
           alert(error.message);
@@ -52,9 +49,9 @@ export default {
       if (user) {
         this.email = user.email;
         this.password = user.password;
-        this.user = user;
+        this.currentUser = user;
       } else {
-        this.user = null;
+        this.currentUser = null;
       }
     });
   },

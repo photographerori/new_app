@@ -5,20 +5,13 @@ import About from "../views/About.vue";
 import Comments from "../views/Comments.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
-import HelloWorld from "../components/HelloWorld";
+import Mypage from "../views/Mypage.vue";
 import firebase from "firebase";
-import PremierLeague from "../views/PremierLeague";
 import Chat from "../views/Chat";
 
 Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: "/",
-    name: "HelloWorld",
-    component: HelloWorld,
-    meta: { requiresAuth: true },
-  },
   {
     path: "/home",
     name: "Home",
@@ -45,9 +38,10 @@ const routes = [
     component: Register,
   },
   {
-    path: "/premier-league",
-    name: "PremierLeague",
-    component: PremierLeague,
+    path: "/mypage/:uid",
+    name: "Mypage",
+    component: Mypage,
+    meta: { requiresAuth: true },
   },
   {
     path: "/chat",
@@ -60,23 +54,12 @@ const router = new VueRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  if (requiresAuth) {
-    // このルートはログインされているかどうか認証が必要です。
-    // もしされていないならば、ログインページにリダイレクトします。
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        next();
-      } else {
-        next({
-          path: "/login",
-          query: { redirect: to.fullPath },
-        });
-      }
-    });
+  if (requiresAuth && !(await firebase.getCurrentUser())) {
+    next({ path: "/singin", query: { redirect: to.fullPath } });
   } else {
-    next(); // next() を常に呼び出すようにしてください!
+    next();
   }
 });
 
